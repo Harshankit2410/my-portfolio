@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  scroll-behavior: smooth;
+  background: #f3efee;
+}
+
+html, body {
+  scrollbar-width: none;      /* hides scrollbar in Firefox */
+  -ms-overflow-style: none;   /* hides scrollbar in IE 10+ */
+}
+
+/* WebKit (Chrome, Edge, Safari) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* ensure thumb / track are transparent just in case */
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Homepage styling */
+.hero-viewport {
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: #f3efee;
+}
+
+.hero-portfolio {
+  position: absolute;
+  left: 5%;
+  top: 12%;
+  font-family: 'Anton', sans-serif;
+  font-size: 9rem;
+  line-height: 0.9;
+  color: #000;
+  letter-spacing: -0.03em;
+  z-index: 5;
+}
+
+@media (min-width: 1024px){
+  .hero-portfolio { font-size: 14rem; }
+}
+
+.hero-image {
+  width: min(60vw, 500px);
+  border-radius: 12px;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.hero-script {
+  position: absolute;
+  bottom: 10%;
+  left: 18%;
+  font-family: 'Pacifico', cursive;
+  font-size: 4rem;
+  color: #000;
+  transform: rotate(-6deg);
+  z-index: 11;
+}
+
+.hero-top-left {
+  position: absolute;
+  left: 3%;
+  top: 2%;
+  font-size: 1.2rem;
+  letter-spacing: 0.4rem;
+}
+.hero-top-right {
+  position: absolute;
+  right: 3%;
+  top: 2%;
+  font-size: 3rem;
+}
+.hero-footer-left {
+  position: absolute;
+  left: 3%;
+  bottom: 3%;
+  width: 30%;
+  font-size: 0.8rem;
+  color: #555;
+}
+.hero-footer-right {
+  position: absolute;
+  right: 3%;
+  bottom: 3%;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* Fully hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE + Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* blob animation helpers used by Loading.jsx */
+.animate-blob {
+  animation: blob 8s infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(15px, -10px) scale(1.05); }
+  66% { transform: translate(-10px, 10px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
